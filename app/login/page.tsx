@@ -43,7 +43,7 @@ export default function LoginPage() {
       router.push(redirectUrl)
       router.refresh()
     } catch (err) {
-      setError("An unexpected error occurred")
+      setError("Terjadi kesalahan yang tidak terduga")
       setIsLoading(false)
     }
   }
@@ -53,8 +53,8 @@ export default function LoginPage() {
       <div className="max-w-md mx-auto">
         <Card>
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold">Login</CardTitle>
-            <CardDescription>Enter your email and password to access your account</CardDescription>
+            <CardTitle className="text-2xl font-bold">Masuk</CardTitle>
+            <CardDescription>Masukkan email dan kata sandi Anda untuk mengakses akun Anda</CardDescription>
           </CardHeader>
           <CardContent>
             {error && (
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="your.email@example.com"
+                  placeholder="email.anda@contoh.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -76,9 +76,9 @@ export default function LoginPage() {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Kata Sandi</Label>
                   <Link href="/forgot-password" className="text-sm text-primary hover:underline">
-                    Forgot password?
+                    Lupa kata sandi?
                   </Link>
                 </div>
                 <Input
@@ -93,19 +93,19 @@ export default function LoginPage() {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Logging in...
+                    Sedang masuk...
                   </>
                 ) : (
-                  "Login"
+                  "Masuk"
                 )}
               </Button>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col">
             <div className="text-center text-sm text-muted-foreground mt-2">
-              Don't have an account?{" "}
+              Belum memiliki akun?{" "}
               <Link href="/register" className="text-primary hover:underline">
-                Register
+                Daftar
               </Link>
             </div>
           </CardFooter>

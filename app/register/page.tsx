@@ -27,7 +27,7 @@ export default function RegisterPage() {
     setError(null)
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match")
+      setError("Kata sandi tidak cocok")
       return
     }
 
@@ -53,7 +53,7 @@ export default function RegisterPage() {
 
       router.push("/login?registered=true")
     } catch (err) {
-      setError("An unexpected error occurred")
+      setError("Terjadi kesalahan yang tidak terduga")
       setIsLoading(false)
     }
   }
@@ -63,8 +63,8 @@ export default function RegisterPage() {
       <div className="max-w-md mx-auto">
         <Card>
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
-            <CardDescription>Enter your information to create an account</CardDescription>
+            <CardTitle className="text-2xl font-bold">Buat akun</CardTitle>
+            <CardDescription>Masukkan informasi Anda untuk membuat akun</CardDescription>
           </CardHeader>
           <CardContent>
             {error && (
@@ -74,7 +74,7 @@ export default function RegisterPage() {
             )}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
+                <Label htmlFor="fullName">Nama Lengkap</Label>
                 <Input
                   id="fullName"
                   placeholder="John Doe"
@@ -88,14 +88,14 @@ export default function RegisterPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="your.email@example.com"
+                  placeholder="email.anda@contoh.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Kata Sandi</Label>
                 <Input
                   id="password"
                   type="password"
@@ -105,7 +105,7 @@ export default function RegisterPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword">Konfirmasi Kata Sandi</Label>
                 <Input
                   id="confirmPassword"
                   type="password"
@@ -118,19 +118,19 @@ export default function RegisterPage() {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Creating account...
+                    Membuat akun...
                   </>
                 ) : (
-                  "Register"
+                  "Daftar"
                 )}
               </Button>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col">
             <div className="text-center text-sm text-muted-foreground mt-2">
-              Already have an account?{" "}
+              Sudah memiliki akun?{" "}
               <Link href="/login" className="text-primary hover:underline">
-                Login
+                Masuk
               </Link>
             </div>
           </CardFooter>

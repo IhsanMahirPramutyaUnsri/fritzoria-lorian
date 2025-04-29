@@ -1,74 +1,43 @@
 import Image from "next/image"
 import Link from "next/link"
-import { createServerSupabaseClient } from "@/lib/supabase"
 import {
   BookOpen,
   BookText,
   MessageSquare,
   BookMarked,
-  Bookmark,
   Sparkles,
   GraduationCap,
   Globe,
   ChevronRight,
-  ShoppingCart,
-  TruckIcon,
-  Star,
+  BookOpenCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Carousel from "@/components/carousel"
 import CategoryCard from "@/components/category-card"
-import BookDisplay from "@/components/book-display"
-import type { Book } from "@/types/database"
 
-async function getHomePageData() {
-  const supabase = createServerSupabaseClient()
-
-  // Get featured books
-  const { data: featuredBooks } = await supabase
-    .from("books")
-    .select(`
-      id,
-      title,
-      author,
-      price,
-      discount_price,
-      cover_image,
-      description
-    `)
-    .order("created_at", { ascending: false })
-    .limit(6)
-
-  return {
-    featuredBooks: featuredBooks as Book[],
-  }
-}
+const categories = [
+  { name: "Buku Fiksi", slug: "fiction", icon: BookOpen },
+  { name: "Buku Non-Fiksi", slug: "non-fiction", icon: BookText },
+  { name: "Komik & Novel Grafis", slug: "comics-graphic-novels", icon: MessageSquare },
+  { name: "Light Novel", slug: "light-novels", icon: BookMarked },
+  { name: "Buku Anak-anak", slug: "childrens-books", icon: Sparkles },
+  { name: "Pendidikan", slug: "education", icon: GraduationCap },
+  { name: "Bahasa Asing", slug: "foreign-language", icon: Globe },
+  { name: "Terlaris", slug: "bestsellers", icon: BookOpenCheck },
+]
 
 export default async function Home() {
-  const { featuredBooks } = await getHomePageData()
-
-  const categories = [
-    { name: "Fiksi", slug: "fiction", icon: BookOpen },
-    { name: "Non-Fiksi", slug: "non-fiction", icon: BookText },
-    { name: "Komik", slug: "comics", icon: MessageSquare },
-    { name: "Novel", slug: "novels", icon: BookMarked },
-    { name: "Light Novel", slug: "light-novels", icon: Bookmark },
-    { name: "Buku Anak", slug: "children", icon: Sparkles },
-    { name: "Pendidikan", slug: "education", icon: GraduationCap },
-    { name: "Buku Bahasa Asing", slug: "foreign-language", icon: Globe },
-  ]
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Carousel Section */}
       <section className="py-6">
         <div className="container px-0 md:px-4">
           <Carousel>
-            {/* Slide 1: Seasonal Sale */}
+            {/* Slide 1: Welcome */}
             <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
               <Image
                 src="/seasonal-sale-books.png"
-                alt="Seasonal Sale"
+                alt="Selamat Datang"
                 fill
                 className="object-cover brightness-[0.85]"
                 priority
@@ -76,69 +45,57 @@ export default async function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex flex-col justify-center px-8 md:px-16">
                 <div className="max-w-lg">
                   <span className="inline-block bg-yellow-500 text-primary font-bold px-4 py-1 rounded-full text-sm mb-4">
-                    DISKON HINGGA 50%
+                    SELAMAT DATANG
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Seasonal Sale is Here!</h2>
-                  <p className="text-white/90 text-lg mb-6">Nikmati diskon hingga 50% untuk koleksi terbaru kami.</p>
-                  <Link href="/sale">
-                    <Button className="bg-white text-primary hover:bg-white/90">
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      Belanja Sekarang
-                    </Button>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Selamat Datang di Fritzoria!</h2>
+                  <p className="text-white/90 text-lg mb-6">
+                    Situs kami sedang dalam pembaruan. Terima kasih atas kesabaran Anda.
+                  </p>
+                  <Link href="/about">
+                    <Button className="bg-white text-primary hover:bg-white/90">Tentang Kami</Button>
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Slide 2: Featured Products */}
+            {/* Slide 2: Coming Soon */}
             <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
               <Image
                 src="/featured-books-collection.png"
-                alt="Featured Products"
+                alt="Segera Hadir"
                 fill
                 className="object-cover brightness-[0.85]"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#1A237E]/80 to-transparent flex flex-col justify-center px-8 md:px-16">
                 <div className="max-w-lg">
                   <span className="inline-block bg-white text-primary font-bold px-4 py-1 rounded-full text-sm mb-4">
-                    PILIHAN TERBAIK
+                    SEGERA HADIR
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    Produk Terfavorit, Khusus untuk Anda
-                  </h2>
-                  <p className="text-white/90 text-lg mb-6">Temukan item favorit pilihan pelanggan di sini.</p>
-                  <Link href="/bestsellers">
-                    <Button className="bg-white text-primary hover:bg-white/90">
-                      <Star className="mr-2 h-4 w-4" />
-                      Lihat Koleksi
-                    </Button>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Fitur Baru Akan Segera Hadir</h2>
+                  <p className="text-white/90 text-lg mb-6">Kami sedang mempersiapkan pengalaman baru untuk Anda.</p>
+                  <Link href="/contact">
+                    <Button className="bg-white text-primary hover:bg-white/90">Hubungi Kami</Button>
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Slide 3: Free Shipping */}
+            {/* Slide 3: Newsletter */}
             <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
-              <Image
-                src="/free-shipping-promo.png"
-                alt="Free Shipping"
-                fill
-                className="object-cover brightness-[0.85]"
-              />
+              <Image src="/free-shipping-promo.png" alt="Newsletter" fill className="object-cover brightness-[0.85]" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#1A237E]/80 to-transparent flex flex-col justify-center px-8 md:px-16">
                 <div className="max-w-lg">
                   <span className="inline-block bg-green-500 text-white font-bold px-4 py-1 rounded-full text-sm mb-4">
-                    GRATIS ONGKIR
+                    NEWSLETTER
                   </span>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    Gratis Ongkir untuk Pembelian di Atas Rp300.000!
+                    Dapatkan Informasi Terbaru dari Kami
                   </h2>
-                  <p className="text-white/90 text-lg mb-6">Belanja lebih banyak, hemat lebih banyak.</p>
-                  <Link href="/categories">
-                    <Button className="bg-white text-primary hover:bg-white/90">
-                      <TruckIcon className="mr-2 h-4 w-4" />
-                      Mulai Belanja
-                    </Button>
+                  <p className="text-white/90 text-lg mb-6">
+                    Berlangganan newsletter kami untuk mendapatkan update terbaru.
+                  </p>
+                  <Link href="/newsletter">
+                    <Button className="bg-white text-primary hover:bg-white/90">Berlangganan</Button>
                   </Link>
                 </div>
               </div>
@@ -169,29 +126,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-12">
-        <div className="container">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold tracking-tight">Buku Pilihan</h2>
-            <p className="text-muted-foreground mt-1">Koleksi terbaik kami dengan sampul yang menarik</p>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
-            {featuredBooks.map((book) => (
-              <BookDisplay
-                key={book.id}
-                id={book.id}
-                title={book.title}
-                author={book.author}
-                price={book.price}
-                discountPrice={book.discount_price || undefined}
-                coverImage={book.cover_image || "/abstract-book-cover.png"}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Promotion Carousel Section */}
       <section className="bg-gray-50 py-12">
         <div className="container">
@@ -213,7 +147,7 @@ export default async function Home() {
                 <div className="flex-1">
                   <Image
                     src="/sleek-digital-membership.png"
-                    alt="Membership Card"
+                    alt="Kartu Keanggotaan"
                     width={400}
                     height={300}
                     className="rounded-lg object-cover"
@@ -224,14 +158,14 @@ export default async function Home() {
 
             {/* Indicator dots */}
             <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
-              <button className="h-2 w-6 rounded-full bg-white transition-all" aria-label="Go to slide 1"></button>
+              <button className="h-2 w-6 rounded-full bg-white transition-all" aria-label="Pergi ke slide 1"></button>
               <button
                 className="h-2 w-2 rounded-full bg-white/50 hover:bg-white/80 transition-all"
-                aria-label="Go to slide 2"
+                aria-label="Pergi ke slide 2"
               ></button>
               <button
                 className="h-2 w-2 rounded-full bg-white/50 hover:bg-white/80 transition-all"
-                aria-label="Go to slide 3"
+                aria-label="Pergi ke slide 3"
               ></button>
             </div>
           </div>

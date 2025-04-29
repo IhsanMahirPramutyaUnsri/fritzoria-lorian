@@ -108,7 +108,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (!book) {
       toast({
         title: "Error",
-        description: "Book not found",
+        description: "Buku tidak ditemukan",
         variant: "destructive",
       })
       return
@@ -117,7 +117,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (book.stock < quantity) {
       toast({
         title: "Error",
-        description: `Only ${book.stock} items available`,
+        description: `Hanya tersedia ${book.stock} item`,
         variant: "destructive",
       })
       return
@@ -140,7 +140,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (newQuantity > book.stock) {
           toast({
             title: "Error",
-            description: `Only ${book.stock} items available`,
+            description: `Hanya tersedia ${book.stock} item`,
             variant: "destructive",
           })
           return
@@ -151,7 +151,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (error) {
           toast({
             title: "Error",
-            description: "Failed to update cart",
+            description: "Gagal memperbarui keranjang",
             variant: "destructive",
           })
           return
@@ -167,7 +167,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (error) {
           toast({
             title: "Error",
-            description: "Failed to add to cart",
+            description: "Gagal menambahkan ke keranjang",
             variant: "destructive",
           })
           return
@@ -209,7 +209,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (newQuantity > book.stock) {
           toast({
             title: "Error",
-            description: `Only ${book.stock} items available`,
+            description: `Hanya tersedia ${book.stock} item`,
             variant: "destructive",
           })
           return
@@ -234,8 +234,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
 
     toast({
-      title: "Added to cart",
-      description: `${book.title} has been added to your cart`,
+      title: "Ditambahkan ke keranjang",
+      description: `${book.title} telah ditambahkan ke keranjang Anda`,
     })
   }
 
@@ -257,7 +257,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (quantity > item.book.stock) {
         toast({
           title: "Error",
-          description: `Only ${item.book.stock} items available`,
+          description: `Hanya tersedia ${item.book.stock} item`,
           variant: "destructive",
         })
         return
@@ -269,7 +269,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (error) {
         toast({
           title: "Error",
-          description: "Failed to update quantity",
+          description: "Gagal memperbarui jumlah",
           variant: "destructive",
         })
         return
@@ -285,7 +285,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (quantity > item.book.stock) {
         toast({
           title: "Error",
-          description: `Only ${item.book.stock} items available`,
+          description: `Hanya tersedia ${item.book.stock} item`,
           variant: "destructive",
         })
         return
@@ -308,7 +308,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (error) {
         toast({
           title: "Error",
-          description: "Failed to remove item",
+          description: "Gagal menghapus item",
           variant: "destructive",
         })
         return
@@ -319,8 +319,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCartItems(cartItems.filter((item) => item.id !== itemId))
 
     toast({
-      title: "Item removed",
-      description: "Item has been removed from your cart",
+      title: "Item dihapus",
+      description: "Item telah dihapus dari keranjang Anda",
     })
   }
 
@@ -337,7 +337,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (error) {
         toast({
           title: "Error",
-          description: "Failed to clear cart",
+          description: "Gagal mengosongkan keranjang",
           variant: "destructive",
         })
         return
@@ -352,8 +352,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
 
     toast({
-      title: "Cart cleared",
-      description: "All items have been removed from your cart",
+      title: "Keranjang dikosongkan",
+      description: "Semua item telah dihapus dari keranjang Anda",
     })
   }
 
