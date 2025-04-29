@@ -1,2 +1,0 @@
-# fritzoria-lorian
-Web  ecommerce
