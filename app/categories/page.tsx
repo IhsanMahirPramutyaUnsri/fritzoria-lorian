@@ -1,14 +1,4 @@
 import Link from "next/link"
-import {
-  BookOpen,
-  BookText,
-  MessageSquare,
-  BookMarked,
-  Sparkles,
-  GraduationCap,
-  Globe,
-  BookOpenCheck,
-} from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function CategoriesPage() {
@@ -17,7 +7,6 @@ export default function CategoriesPage() {
     {
       name: "Buku Fiksi",
       slug: "fiction",
-      icon: BookOpen,
       description:
         "Jelajahi koleksi buku fiksi kami termasuk novel, cerita pendek, romansa, fantasi, fiksi ilmiah, misteri & thriller, dan horor.",
       subcategories: [
@@ -33,7 +22,6 @@ export default function CategoriesPage() {
     {
       name: "Buku Non-Fiksi",
       slug: "non-fiction",
-      icon: BookText,
       description:
         "Temukan koleksi non-fiksi kami termasuk biografi, bisnis, pengembangan diri, sains & teknologi, sejarah, agama & spiritualitas, dan pendidikan & akademik.",
       subcategories: [
@@ -49,7 +37,6 @@ export default function CategoriesPage() {
     {
       name: "Komik & Novel Grafis",
       slug: "comics-graphic-novels",
-      icon: MessageSquare,
       description:
         "Telusuri koleksi komik dan novel grafis kami termasuk manga Jepang, novel grafis Barat, dan komik anak-anak.",
       subcategories: [
@@ -61,7 +48,6 @@ export default function CategoriesPage() {
     {
       name: "Light Novel",
       slug: "light-novels",
-      icon: BookMarked,
       description:
         "Jelajahi koleksi light novel kami termasuk petualangan, fantasi, fiksi ilmiah, slice of life, dan romansa.",
       subcategories: [
@@ -75,7 +61,6 @@ export default function CategoriesPage() {
     {
       name: "Buku Anak-anak",
       slug: "childrens-books",
-      icon: Sparkles,
       description:
         "Temukan buku sempurna untuk anak-anak termasuk buku cerita, buku pendidikan, dan buku papan & buku pop-up.",
       subcategories: [
@@ -87,7 +72,6 @@ export default function CategoriesPage() {
     {
       name: "Pendidikan",
       slug: "education",
-      icon: GraduationCap,
       description: "Telusuri buku pendidikan kami untuk SD, SMP, SMA, dan lainnya.",
       subcategories: [
         { name: "Sekolah Dasar", slug: "elementary-school" },
@@ -100,14 +84,12 @@ export default function CategoriesPage() {
     {
       name: "Bahasa Asing",
       slug: "foreign-language",
-      icon: Globe,
       description: "Jelajahi buku dalam berbagai bahasa untuk memperluas wawasan linguistik Anda.",
       subcategories: [],
     },
     {
       name: "Terlaris",
       slug: "bestsellers",
-      icon: BookOpenCheck,
       description: "Temukan buku-buku paling populer dan terlaris kami dari semua kategori.",
       subcategories: [],
     },
@@ -122,9 +104,6 @@ export default function CategoriesPage() {
           <Card key={category.slug} className="overflow-hidden">
             <CardHeader className="bg-primary/5 pb-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-md">
-                  <category.icon className="h-6 w-6 text-primary" />
-                </div>
                 <CardTitle className="text-xl">{category.name}</CardTitle>
               </div>
             </CardHeader>

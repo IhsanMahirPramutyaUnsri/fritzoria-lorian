@@ -56,22 +56,6 @@ export default function Header() {
     {
       name: "Buku Fiksi",
       slug: "fiction",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-        </svg>
-      ),
       subcategories: [
         { name: "Novel", slug: "novels" },
         { name: "Cerita Pendek", slug: "short-stories" },
@@ -85,21 +69,6 @@ export default function Header() {
     {
       name: "Buku Non-Fiksi",
       slug: "non-fiction",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 0 0 1 0-5H20"></path>
-        </svg>
-      ),
       subcategories: [
         { name: "Biografi & Autobiografi", slug: "biographies-autobiographies" },
         { name: "Bisnis & Manajemen", slug: "business-management" },
@@ -113,23 +82,6 @@ export default function Header() {
     {
       name: "Komik & Novel Grafis",
       slug: "comics-graphic-novels",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect width="18" height="18" x="3" y="3" rx="2" />
-          <path d="M3 9h18" />
-          <path d="M9 21V9" />
-        </svg>
-      ),
       subcategories: [
         { name: "Manga Jepang", slug: "japanese-manga" },
         { name: "Novel Grafis Barat", slug: "western-graphic-novels" },
@@ -139,22 +91,6 @@ export default function Header() {
     {
       name: "Light Novel",
       slug: "light-novels",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 0 0 7 0" />
-          <path d="M15 18h.01" />
-        </svg>
-      ),
       subcategories: [
         { name: "Petualangan", slug: "light-novel-adventure" },
         { name: "Fantasi", slug: "light-novel-fantasy" },
@@ -166,29 +102,6 @@ export default function Header() {
     {
       name: "Buku Anak-anak",
       slug: "childrens-books",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M9 18h6" />
-          <path d="M10 22h4" />
-          <path d="M12 2v7" />
-          <path d="m4.93 10.93 1.41 1.41" />
-          <path d="M2 18h2" />
-          <path d="M20 18h2" />
-          <path d="m19.07 10.93-1.41 1.41" />
-          <path d="M22 22H2" />
-          <path d="M16 7a4 4 0 0 0-8 0" />
-        </svg>
-      ),
       subcategories: [
         { name: "Buku Cerita Anak", slug: "childrens-story-books" },
         { name: "Buku Pendidikan Anak", slug: "childrens-educational-books" },
@@ -198,22 +111,6 @@ export default function Header() {
     {
       name: "Pendidikan",
       slug: "education",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-          <path d="M6 12v5c3 3 9 3 12 0v-5" />
-        </svg>
-      ),
       subcategories: [
         { name: "Sekolah Dasar", slug: "elementary-school" },
         { name: "Sekolah Menengah Pertama", slug: "middle-school" },
@@ -245,9 +142,6 @@ export default function Header() {
                         href={`/categories/${category.slug}`}
                         className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-md"
                       >
-                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-primary">
-                          {category.icon}
-                        </div>
                         <span className="flex-1 font-medium">{category.name}</span>
                       </Link>
                       <div className="pl-10 pb-2 mt-1 space-y-1 border-l-2 border-blue-100 ml-3 overflow-hidden">

@@ -1,19 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import {
-  BookOpen,
-  BookText,
-  MessageSquare,
-  BookMarked,
-  Sparkles,
-  GraduationCap,
-  Globe,
-  ChevronRight,
-  ShoppingCart,
-  TruckIcon,
-  Star,
-  BookOpenCheck,
-} from "lucide-react"
+import { ChevronRight, ShoppingCart, TruckIcon, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Carousel from "@/components/carousel"
 import CategoryCard from "@/components/category-card"
@@ -24,14 +11,14 @@ export default async function Home() {
   const featuredBooks = await getFeaturedBooks(10)
 
   const categories = [
-    { name: "Buku Fiksi", slug: "fiction", icon: BookOpen },
-    { name: "Buku Non-Fiksi", slug: "non-fiction", icon: BookText },
-    { name: "Komik & Novel Grafis", slug: "comics-graphic-novels", icon: MessageSquare },
-    { name: "Light Novel", slug: "light-novels", icon: BookMarked },
-    { name: "Buku Anak-anak", slug: "childrens-books", icon: Sparkles },
-    { name: "Pendidikan", slug: "education", icon: GraduationCap },
-    { name: "Bahasa Asing", slug: "foreign-language", icon: Globe },
-    { name: "Terlaris", slug: "bestsellers", icon: BookOpenCheck },
+    { name: "Buku Fiksi", slug: "fiction" },
+    { name: "Buku Non-Fiksi", slug: "non-fiction" },
+    { name: "Komik & Novel Grafis", slug: "comics-graphic-novels" },
+    { name: "Light Novel", slug: "light-novels" },
+    { name: "Buku Anak-anak", slug: "childrens-books" },
+    { name: "Pendidikan", slug: "education" },
+    { name: "Bahasa Asing", slug: "foreign-language" },
+    { name: "Terlaris", slug: "bestsellers" },
   ]
 
   return (
@@ -139,7 +126,7 @@ export default async function Home() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
             {categories.map((category) => (
-              <CategoryCard key={category.slug} name={category.name} slug={category.slug} icon={category.icon} />
+              <CategoryCard key={category.slug} name={category.name} slug={category.slug} />
             ))}
           </div>
         </div>
