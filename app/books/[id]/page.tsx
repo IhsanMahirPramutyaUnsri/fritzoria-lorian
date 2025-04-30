@@ -49,17 +49,7 @@ export default async function BookPage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="mb-6">
-            {book.discount_price ? (
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold">{formatCurrency(book.discount_price)}</span>
-                <span className="text-lg text-muted-foreground line-through">{formatCurrency(book.price)}</span>
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {Math.round(((book.price - book.discount_price) / book.price) * 100)}% OFF
-                </span>
-              </div>
-            ) : (
-              <span className="text-2xl font-bold">{formatCurrency(book.price)}</span>
-            )}
+            <span className="text-2xl font-bold">{formatCurrency(book.price)}</span>
           </div>
 
           <div className="prose prose-blue max-w-none mb-6">

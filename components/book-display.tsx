@@ -82,14 +82,7 @@ export default function BookDisplay({ id, title, author, price, coverImage, disc
         <p className="line-clamp-1 text-sm text-muted-foreground">{author}</p>
         <div className="mt-auto flex items-center justify-between pt-4">
           <div>
-            {discountPrice ? (
-              <div className="flex flex-col">
-                <p className="text-base font-semibold">{formatCurrency(discountPrice)}</p>
-                <p className="text-xs text-muted-foreground line-through">{formatCurrency(price)}</p>
-              </div>
-            ) : (
-              <p className="text-base font-semibold">{formatCurrency(price)}</p>
-            )}
+            <p className="text-base font-semibold">{formatCurrency(price)}</p>
           </div>
           <button
             className="h-8 rounded-full px-3 bg-primary text-white flex items-center justify-center"

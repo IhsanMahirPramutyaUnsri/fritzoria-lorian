@@ -154,7 +154,7 @@ export async function searchBooks(query: string, limit = 10): Promise<Book[]> {
 export async function getFeaturedBooks(limit = 8): Promise<Book[]> {
   const supabase = createServerSupabaseClient()
 
-  const { data: books } = await supabase.from("books").select("*").not("discount_price", "is", null).limit(limit)
+  const { data: books } = await supabase.from("books").select("*").limit(limit)
 
   return books || []
 }

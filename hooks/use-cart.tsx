@@ -360,7 +360,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Calculate subtotal
   const subtotal = cartItems.reduce((total, item) => {
     if (!item.book) return total
-    const price = item.book.discount_price || item.book.price
+    const price = item.book.price
     return total + price * item.quantity
   }, 0)
 
