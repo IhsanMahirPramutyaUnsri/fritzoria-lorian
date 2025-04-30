@@ -30,26 +30,31 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Tentang Kami</h3>
+            <h3 className="mb-4 text-lg font-semibold">Belanja</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="hover:underline">
-                  Profil Perusahaan
+                <Link href="/categories/fiction" className="hover:underline">
+                  Fiksi
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:underline">
-                  Karir
+                <Link href="/categories/non-fiction" className="hover:underline">
+                  Non-Fiksi
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:underline">
-                  Blog
+                <Link href="/categories/childrens-books" className="hover:underline">
+                  Buku Anak-anak
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="hover:underline">
-                  Pers
+                <Link href="/categories/education" className="hover:underline">
+                  Pendidikan
+                </Link>
+              </li>
+              <li>
+                <Link href="/categories/stationery" className="hover:underline">
+                  Alat Tulis
                 </Link>
               </li>
             </ul>

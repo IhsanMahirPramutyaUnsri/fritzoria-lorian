@@ -8,10 +8,13 @@ import {
   Sparkles,
   GraduationCap,
   Globe,
+  BookOpenCheck,
   ChevronRight,
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import BookGrid from "@/components/book-grid"
+import { getBooksByCategory, getSubcategories } from "@/lib/actions"
 
 // Define the category data structure
 const categories = [
@@ -185,9 +188,16 @@ const categories = [
     description: "Jelajahi buku dalam berbagai bahasa untuk memperluas wawasan linguistik Anda.",
     subcategories: [],
   },
+  {
+    name: "Terlaris",
+    slug: "bestsellers",
+    icon: BookOpenCheck,
+    description: "Temukan buku-buku paling populer dan terlaris kami dari semua kategori.",
+    subcategories: [],
+  },
 ]
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({ params }: { params: { slug: string } }) {
   const category = categories.find((cat) => cat.slug === params.slug)
 
   if (!category) {
@@ -195,6 +205,8 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   }
 
   const CategoryIcon = category.icon
+  const books = await getBooksByCategory(params.slug)
+  const subcategories = await getSubcategories(params.slug)
 
   return (
     <div className="container py-12">
@@ -215,11 +227,11 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
       <p className="text-lg text-muted-foreground mb-8 max-w-3xl">{category.description}</p>
 
-      {category.subcategories.length > 0 && (
+      {subcategories.length > 0 && (
         <div className="mb-12">
           <h2 className="text-xl font-semibold mb-6">Telusuri berdasarkan Subkategori</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {category.subcategories.map((subcategory) => (
+            {subcategories.map((subcategory) => (
               <Card key={subcategory.slug} className="overflow-hidden">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-medium mb-2">{subcategory.name}</h3>
@@ -235,6 +247,11 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
+
+      <div className="mb-12">
+        <h2 className="text-xl font-semibold mb-6">Buku {category.name}</h2>
+        <BookGrid books={books} emptyMessage={`Tidak ada buku ${category.name} yang tersedia saat ini.`} />
+      </div>
 
       <div className="text-center mt-8">
         <p className="text-muted-foreground mb-4">Mencari sesuatu yang spesifik?</p>

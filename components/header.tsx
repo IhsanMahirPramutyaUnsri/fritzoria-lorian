@@ -232,9 +232,6 @@ export default function Header() {
             <span className="text-xl font-bold text-primary">Fritzoria</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link href="/" className={`${pathname === "/" ? "text-primary" : "text-gray-600 hover:text-primary"}`}>
-              Beranda
-            </Link>
             <div className="relative group">
               <button className="flex items-center gap-1 text-gray-600 hover:text-primary">
                 Kategori
@@ -269,12 +266,6 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link
-              href="/categories"
-              className={`${pathname === "/categories" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
-            >
-              Semua Kategori
-            </Link>
           </nav>
         </div>
         <button
@@ -310,9 +301,6 @@ export default function Header() {
             <Link href="/wishlist" className="p-2 rounded-full hover:bg-gray-100 relative">
               <Heart size={20} />
               <span className="sr-only">Wishlist</span>
-              <span className="absolute -right-1 -top-1 h-5 w-5 rounded-full bg-primary text-white text-xs flex items-center justify-center">
-                2
-              </span>
             </Link>
             <Link href="/cart" className="p-2 rounded-full hover:bg-gray-100 relative">
               <ShoppingCart size={20} />
@@ -340,13 +328,6 @@ export default function Header() {
               />
             </div>
           </form>
-          <Link
-            href="/"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-blue-50 hover:text-primary"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Beranda
-          </Link>
           <div className="py-2">
             <div className="block rounded-md px-3 py-2 text-base font-medium text-gray-900">Kategori</div>
             <div className="pl-6 space-y-1">

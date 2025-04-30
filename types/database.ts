@@ -15,6 +15,7 @@ export type Book = {
   created_at: string
   updated_at: string
   categories?: Category[]
+  subcategories?: Subcategory[]
 }
 
 export type Category = {
@@ -23,6 +24,16 @@ export type Category = {
   slug: string
   description: string | null
   created_at: string
+}
+
+export type Subcategory = {
+  id: string
+  name: string
+  slug: string
+  category_id: string
+  description: string | null
+  created_at: string
+  category?: Category
 }
 
 export type CartItem = {

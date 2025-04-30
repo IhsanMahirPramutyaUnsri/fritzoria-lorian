@@ -1,5 +1,14 @@
 import Link from "next/link"
-import { BookOpen, BookText, MessageSquare, BookMarked, Sparkles, GraduationCap, Globe } from "lucide-react"
+import {
+  BookOpen,
+  BookText,
+  MessageSquare,
+  BookMarked,
+  Sparkles,
+  GraduationCap,
+  Globe,
+  BookOpenCheck,
+} from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function CategoriesPage() {
@@ -93,6 +102,13 @@ export default function CategoriesPage() {
       slug: "foreign-language",
       icon: Globe,
       description: "Jelajahi buku dalam berbagai bahasa untuk memperluas wawasan linguistik Anda.",
+      subcategories: [],
+    },
+    {
+      name: "Terlaris",
+      slug: "bestsellers",
+      icon: BookOpenCheck,
+      description: "Temukan buku-buku paling populer dan terlaris kami dari semua kategori.",
       subcategories: [],
     },
   ]

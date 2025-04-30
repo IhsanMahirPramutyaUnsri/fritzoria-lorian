@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import BookGrid from "@/components/book-grid"
+import { getBooksBySubcategory } from "@/lib/actions"
 
 // Define the category data structure (same as in the category page)
 const categories = [
@@ -72,7 +74,7 @@ const categories = [
   },
 ]
 
-export default function SubcategoryPage({ params }: { params: { slug: string; subcategory: string } }) {
+export default async function SubcategoryPage({ params }: { params: { slug: string; subcategory: string } }) {
   const category = categories.find((cat) => cat.slug === params.slug)
 
   if (!category) {
@@ -84,6 +86,8 @@ export default function SubcategoryPage({ params }: { params: { slug: string; su
   if (!subcategory) {
     notFound()
   }
+
+  const books = await getBooksBySubcategory(params.slug, params.subcategory)
 
   return (
     <div className="container py-12">
@@ -101,11 +105,15 @@ export default function SubcategoryPage({ params }: { params: { slug: string; su
 
       <h1 className="text-3xl font-bold mb-6">{subcategory.name}</h1>
 
-      <div className="text-center py-12">
-        <p className="text-muted-foreground mb-4">
-          Ini adalah placeholder untuk halaman subkategori {subcategory.name}. Produk dalam kategori ini akan
-          ditampilkan di sini.
-        </p>
+      <div className="mb-12">
+        <BookGrid books={books} emptyMessage={`Tidak ada buku ${subcategory.name} yang tersedia saat ini.`} />
+      </div>
+
+      <div className="text-center mt-8">
+        <p className="text-muted-foreground mb-4">Kembali ke kategori utama</p>
+        <Link href={`/categories/${category.slug}`} className="text-primary hover:underline">
+          Lihat semua {category.name}
+        </Link>
       </div>
     </div>
   )
